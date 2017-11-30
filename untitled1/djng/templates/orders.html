@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{# Подставится вместо блока title в базовом шаблоне #}
+{% block title %}3аказы{% endblock %}
+
+{% block body %}
+    <div  class="jumbotron" >
+
+    <h1>Заказы </h1>
+    </div>
+        {% for order in orders %}
+            {% include 'order_element.html' with element=order %}
+            {% if order.id == 3 %}
+                <div>конец списка</div>
+            {% endif %}
+        {% empty %}
+            <li>пустой cписок</li>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+

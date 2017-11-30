@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}3аказ № {{ order.id }}{% endblock %}
+{% block body %}
+    <div class="text-center">
+
+        <h3>
+            Страница заказа №{{ order.id }}
+        </h3>
+
+
+    </div>
+    <div class="text-info">
+        Информация о заказе №{{ order.id }}
+    </div>
+    <br/>
+    <a href="{% url 'orders_url' %}" class="btn btn-default" role="button">назад</a>
+{% endblock %}
