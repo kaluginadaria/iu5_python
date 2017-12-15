@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plots</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="input-group col-sm-4" >
+        <span class="input-group-addon">От: </span>
+        <input type="text" id="from" class="form-control is-valid">
+    </div>
+
+    <div class="input-group col-sm-4">
+        <span class="input-group-addon">До: </span>
+        <input type="text" id="to" class="form-control is-valid">
+    </div>
+
+    <div class="input-group col-sm-4">
+        <span class="input-group-addon">Функция: </span>
+        <input type="text" id="func" class="form-control is-valid">
+    </div>
+
+    <button id="plot_btn" class="btn btn-primary col-sm-4">Построить график</button>
+
+    <div id="plot">
+
+    </div>
+    </div>
+</body>
+<footer>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</footer>
+</html>

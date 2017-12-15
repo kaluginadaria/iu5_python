@@ -1,0 +1,46 @@
+{% load static %}
+{% for group in group_list %}
+    <section class="panel panel-search">
+{#        <div class="panel-heading bg-primary">#}
+            <div class="panel-title">
+                <h2>
+                    <div class="title">
+                        <a href="/item-{{ group.name }}">{{  group.name}}</a> <small> {{ group.genre}}</small>
+                    </div>
+                </h2>
+
+            </div>
+{#        </div>#}
+        <div class="panel-body ">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div>
+                       {{  group.pic}}
+                    </div>
+{#                    <img src="{{ MEDIA_URL }}media/Nirvana_around_1992.jpg"/>#}
+{#                    <img src="C:\Users\dashu\Documents\pythproj\iu5_python\RIP_HW\RIP_HW\media\media\201430SecondsToMars_Getty184691998141114-1.jpg" />#}
+                </div>
+                <div class="col-lg-4">
+                    <h4>{{ group.description }}</h4>
+
+                    {% for key, value in persons_list.items %}
+                        {% if key == group.name %}
+                            {% for v in value %}
+                                <h5>{{ v }}</h5>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+{#     <img src="../RIP_HW/media/media/201430SecondsToMars_Getty184691998141114-1.jpg" />#}
+{#     <img src="../RIP_HW/media/Nirvana_around_1992.jpg" />#}
+{% empty %}
+    Finish
+{% endfor %}
+{# <img src="../RIP_HW/media/media/201430SecondsToMars_Getty184691998141114-1.jpg" />#}
+     <img src="../static/hw/Nirvana_around_1992.jpg" />

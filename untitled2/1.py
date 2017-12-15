@@ -11,7 +11,7 @@ c = db.cursor()
 c.execute('SET NAMES utf8;')
 c.execute('SET CHARACTER SET utf8;')
 c.execute('SET character_set_connection=utf8;')
-c.execute("INSERT INTO orders (name, description) VALUES (%s, %s)", ('заказ 3', "какой то заказ 3"))
+c.execute("INSERT INTO orders (name, description) VALUES (%s, %s)", ('заказ 777', "какой то заказ 777"))
 
 db.commit()
 

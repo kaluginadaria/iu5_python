@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+
+{% block content %}
+
+    <h1>{{ header }}</h1>
+    {% if user.is_authenticated %}
+<div class="container">
+        <ul class="list-group">
+                {% include "list_groups.html"  %}
+            </ul>
+</div>
+    {%  endif %}
+{% endblock %}
