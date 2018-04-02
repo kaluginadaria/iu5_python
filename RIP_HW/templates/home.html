@@ -1,15 +1,43 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}home{% endblock %}
+{% block title %}List{% endblock %}
 
 {% block content %}
 
     <h1>{{ header }}</h1>
-    {% if user.is_authenticated %}
-<div class="container">
-        <ul class="list-group">
-                {% include "list_groups.html"  %}
-            </ul>
-</div>
-    {%  endif %}
+
+    <div class="">
+        {% if user.is_authenticated %}
+            <a href="/add" role="button">
+                <button class="buttonadd">+</button>
+            </a>
+        {% endif %}
+        <div class="panel-group">
+            {% for data in paginator %}
+
+                {% include "list_groups.html" %}
+
+            {% endfor %}
+            <div class="pagination">
+                {% if paginator.has_previous %}
+                    <a href="?page={{ paginator.previous_age_number }}"> Previous</a>
+                {% endif %}
+                {% if paginator.has_previous  or paginator.has_next %}
+                    <span class="'current"> Page {{ paginator.number }} out of {{ paginator.paginator.num_pages }}</span>
+                {% endif %}
+                {% if paginator.has_next %}
+                    <a href="?page={{ paginator.next_page_number }}">Next</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block tags %}
+    <h4>Popular Genres</h4>
+    {% for j in tag %}
+        <a href="#">{{j}}</a>
+    {% endfor %}
 {% endblock %}

@@ -1,46 +1,63 @@
 {% load static %}
-{% for group in group_list %}
-    <section class="panel panel-search">
-{#        <div class="panel-heading bg-primary">#}
-            <div class="panel-title">
-                <h2>
-                    <div class="title">
-                        <a href="/item-{{ group.name }}">{{  group.name}}</a> <small> {{ group.genre}}</small>
-                    </div>
-                </h2>
+{#{% load template_filter %}#}
 
-            </div>
-{#        </div>#}
-        <div class="panel-body ">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div>
-                       {{  group.pic}}
-                    </div>
-{#                    <img src="{{ MEDIA_URL }}media/Nirvana_around_1992.jpg"/>#}
-{#                    <img src="C:\Users\dashu\Documents\pythproj\iu5_python\RIP_HW\RIP_HW\media\media\201430SecondsToMars_Getty184691998141114-1.jpg" />#}
-                </div>
-                <div class="col-lg-4">
-                    <h4>{{ group.description }}</h4>
-
-                    {% for key, value in persons_list.items %}
-                        {% if key == group.name %}
-                            {% for v in value %}
-                                <h5>{{ v }}</h5>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
+<div class=" panel-warning">
 
 
-                </div>
-            </div>
+    <div class=" panel panel-heading">
+        <h3>
+
+            <a href="/item-{{ data.id }}">{{ data.name }}</a>
+            <small>
+               {% for i in data.genre.all %}
+
+               {{ i }}
+
+            {% endfor %}</small>
+        </h3>
+        <div class="right">
+            <button class="btn btn-default" type="button"><span class='glyphicon glyphicon-thumbs-up'></span></button>
+            <span class="panel panel-default">
+               {{  data.rating }}
+            </span>
+
+            <button class="btn btn-default" type="button"><span class='glyphicon glyphicon-thumbs-down'></span></button>
         </div>
+    </div>
 
-    </section>
-{#     <img src="../RIP_HW/media/media/201430SecondsToMars_Getty184691998141114-1.jpg" />#}
-{#     <img src="../RIP_HW/media/Nirvana_around_1992.jpg" />#}
-{% empty %}
-    Finish
-{% endfor %}
-{# <img src="../RIP_HW/media/media/201430SecondsToMars_Getty184691998141114-1.jpg" />#}
-     <img src="../static/hw/Nirvana_around_1992.jpg" />
+
+    <div class="panel-body ">
+        <div class="row">
+
+
+            <div class="col-lg-4 ">
+
+                <img src="{% static "" %}{{ data.pic }}" width="50%"/>
+            </div>
+            <div class="col-lg-4">
+                <h4>{{ data.description }}</h4>
+
+                {#                                    {% for key, value in persons_list.items %}#}
+                {#                                        {% if key == group.name %}#}
+                {#                                            {% for v in value %}#}
+                {#                                                <h5>{{ v }}</h5>#}
+                {#                                            {% endfor %}#}
+                {#                                        {% endif %}#}
+                {#                                    {% endfor %}#}
+
+{#<a href="/">answer ({{ group_list|get_item:data.id}},{{ data }})</a>#}
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+    }
+</script>
+
+
+
+
+

@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     var from = $('#from');
     var to = $('#to');
     var func = $('#func');
@@ -12,8 +12,8 @@ $(function(){
         var to_val = parseFloat(to.val());
 
         setInterval(function(){
-            from_val += 0.1;
-            to_val += 0.1;
+            from_val += 0.01;
+            to_val += 0.01;
             var values = []
 
             for(var x = from_val; x <= to_val; x += 0.1){
@@ -21,7 +21,8 @@ $(function(){
             }
 
             $.plot(plot, [values], {})
-        }, 20);
+        }, 10);
 
     });
+
 })

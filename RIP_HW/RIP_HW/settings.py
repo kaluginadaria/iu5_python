@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hwApp.apps.HwappConfig',
+    'hwApp',
+   # 'el_pagination'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ WSGI_APPLICATION = 'RIP_HW.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_hw',
+        'NAME': 'parkweb',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -120,7 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
+# STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 
-MEDIA_ROOT = '/RIP_HW/media/'
-MEDIA_URL = '/media/' # whatever but it should same in `urls.py`
+MEDIA_ROOT = 'hwApp/static/'
+MEDIA_URL = '/'
+# from django.conf.global_settings import TEMPLATES
+
+# TEMPLATES[0]['OPTIONS']['context_processors'].insert(0, 'django.core.context_processors.request')

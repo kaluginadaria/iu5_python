@@ -19,17 +19,15 @@ from hwApp.views import *
 from RIP_HW.settings import *
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', GroupsView.as_view(), name='groups_url'),
-    # url((r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-    #              'document_root': MEDIA_ROOT})),
+    url(r'^$', groups_view, name='groups_url'),
 
     url(r'^registration/$', registration, name='registration'),
-
+    url(r'^item-(?P<pk>[A-Za-z0-9- ]+)$', OneGroup, name='item_view'),
     url(r'^authorization/$', authorization, name='authorization'),
     url(r'^logout$', logout_view, name='logout'),
-
+    url(r'^add/$', add, name='add'),
     url(r'^success_authorization$', success_authorization, name='success_authorization'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
